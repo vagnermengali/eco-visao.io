@@ -241,7 +241,7 @@
       document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
       // Dados reais da plataforma (opcional: se a API estiver fora, a seção simplesmente não aparece)
-      const API = ["localhost", "127.0.0.1"].includes(location.hostname) ? "http://localhost:3000" : "https://eco-visao-api.onrender.com";
+      const API = ["localhost", "127.0.0.1"].includes(location.hostname) ? "http://localhost:3000" : "https://eco-visao-io.onrender.com";
       const CAT = { desmatamento: "Desmatamento", queimadas: "Queimadas", mineracao: "Mineração", fauna: "Fauna", legislacao: "Legislação", monitoramento: "Monitoramento" };
       const esc = (t) => Object.assign(document.createElement("div"), { textContent: t ?? "" }).innerHTML;
       (async () => {
