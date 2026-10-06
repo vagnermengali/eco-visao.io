@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alertas - EcoVisão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+      #map { height: 500px; border-radius: 0.75rem; position: relative; z-index: 1; }
+      @media (max-width: 640px) { #map { height: 360px; } }
+    </style>
+    <style>@media print { #sidebar, #topbar, .no-print { display: none !important; } }</style>
+    <link rel="icon" type="image/x-icon" href="assets/img/faviconn.svg" />
+  </head>
+  <body class="min-h-screen bg-gray-50 flex">
+    <div id="sidebarBackdrop" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+    <aside id="sidebar"></aside>
+    <main class="flex-1 flex flex-col min-w-0">
+      <header id="topbar" class="bg-white px-4 sm:px-6 py-3.5 border-b border-gray-200 flex items-center justify-between gap-4 sticky top-0 z-30">
+        <button id="openSidebar" class="lg:hidden" aria-label="Abrir menu"><i class="fas fa-bars w-6 h-6"></i></button>
+        <h1 class="text-lg sm:text-xl font-bold text-gray-800">Alertas e Mapa</h1>
+        <span id="userEmail" class="text-sm text-gray-500 hidden sm:block"></span>
+      </header>
+      <div id="content" class="flex-1 p-4 sm:p-6 overflow-auto"><div class="max-w-6xl mx-auto">
+        <div class="page-head"><p>Registre, atualize e acompanhe alertas de desmatamento, queimadas, mineração e fauna.</p></div>
+        <article class="card mb-6">
+          <div class="flex mb-6 justify-between items-center">
+            <h2 id="listTitle" class="font-semibold text-xl">Meus Alertas</h2>
+            <button id="novoAlerta" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Novo Alerta</button>
+          </div>
+          <div id="listaAlertas" class="space-y-4"><div class="skeleton h-20 mb-3"></div><div class="skeleton h-20 mb-3"></div><div class="skeleton h-20"></div></div>
+        </article>
+        <div class="card">
+          <h2 class="text-lg font-semibold text-gray-800 mb-1">Mapa da Região</h2>
+          <p id="mapHint" class="text-sm text-gray-500 mb-4">Todos os alertas da plataforma. Seus alertas aparecem na lista acima.</p>
+          <div id="map"></div>
+        </div>
+        <div id="caixaModal" class="modal-overlay hidden" role="dialog" aria-modal="true"><div class="modal-box">
+          <h3 class="font-semibold text-lg mb-4" id="tituloModal">Novo Alerta</h3>
+          <p id="modalError" class="hidden text-red-600 text-sm mb-3"></p>
+          <label class="block text-sm font-medium mb-1 text-gray-700" for="entradaTipo">Tipo de ocorrência:</label>
+          <select id="entradaTipo" class="w-full px-3 py-2 mb-4">
+            <option value="desmatamento">Desmatamento</option><option value="queimadas">Queimadas</option>
+            <option value="mineracao">Mineração</option><option value="fauna">Fauna</option>
+          </select>
+          <label class="block text-sm font-medium mb-1 text-gray-700" for="entradaTitulo">Título:</label>
+          <input type="text" id="entradaTitulo" maxlength="80" class="w-full px-3 py-2 mb-4" placeholder="Digite o título do alerta..." />
+          <label class="block text-sm font-medium mb-1 text-gray-700" for="entradaData">Data da ocorrência:</label>
+          <input type="date" id="entradaData" class="w-full px-3 py-2 mb-4" />
+          <label class="block text-sm font-medium mb-1 text-gray-700" for="entradaDescricao">Descrição (máx. 200 caracteres):</label>
+          <textarea id="entradaDescricao" maxlength="200" class="w-full px-3 py-2 mb-4 h-24 resize-none" placeholder="Descreva brevemente o problema..."></textarea>
+          <p class="text-sm text-gray-600 mb-4"><i class="fas fa-location-dot"></i> Localização: <span id="entradaLocal">não definida</span>
+            <button type="button" id="escolherLocal" class="ml-2 text-green-700 underline">escolher no mapa</button></p>
+          <div class="flex justify-end gap-4">
+            <button class="btn btn-secondary" id="cancelarModal">Cancelar</button>
+            <button class="btn btn-primary" id="confirmarModal">Salvar</button>
+          </div></div></div>
+      </div></div>
+    </main>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/my-alerts.js"></script>
+  </body>
+</html>

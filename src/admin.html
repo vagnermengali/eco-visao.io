@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administração - EcoVisão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <style>@media print { #sidebar, #topbar, .no-print { display: none !important; } }</style>
+    <link rel="icon" type="image/x-icon" href="assets/img/faviconn.svg" />
+  </head>
+  <body class="min-h-screen bg-gray-50 flex">
+    <div id="sidebarBackdrop" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+    <aside id="sidebar"></aside>
+    <main class="flex-1 flex flex-col min-w-0">
+      <header id="topbar" class="bg-white px-4 sm:px-6 py-3.5 border-b border-gray-200 flex items-center justify-between gap-4 sticky top-0 z-30">
+        <button id="openSidebar" class="lg:hidden" aria-label="Abrir menu"><i class="fas fa-bars w-6 h-6"></i></button>
+        <h1 class="text-lg sm:text-xl font-bold text-gray-800">Administração da Plataforma</h1>
+        <span id="userEmail" class="text-sm text-gray-500 hidden sm:block"></span>
+      </header>
+      <div id="content" class="flex-1 p-4 sm:p-6 overflow-auto"><div class="max-w-6xl mx-auto">
+        <div class="page-head"><p>Gerencie usuários, perfis e conteúdos da plataforma.</p></div>
+        <div id="adminTabs" class="flex flex-wrap gap-2 mb-6">
+          <button data-tab="overview" class="chip">Visão geral</button>
+          <button data-tab="users" class="chip">Usuários</button>
+          <button data-tab="contents" class="chip">Conteúdos educativos</button>
+        </div>
+        <div id="adminPanel"><div class="skeleton h-20 mb-3"></div><div class="skeleton h-20 mb-3"></div><div class="skeleton h-20"></div></div>
+        <div id="contentFormModal" class="modal-overlay hidden" role="dialog" aria-modal="true"><div class="modal-box">
+          <h3 id="cfTitle" class="font-semibold text-lg mb-4">Novo conteúdo</h3>
+          <p id="cfError" class="hidden text-red-600 text-sm mb-3"></p>
+          <label class="block text-sm font-medium mb-1" for="cfName">Título</label>
+          <input id="cfName" class="w-full px-3 py-2 mb-3" maxlength="100" />
+          <label class="block text-sm font-medium mb-1" for="cfCategory">Categoria</label>
+          <input id="cfCategory" class="w-full px-3 py-2 mb-3" maxlength="30" placeholder="ex.: queimadas" />
+          <label class="block text-sm font-medium mb-1" for="cfSummary">Resumo</label>
+          <input id="cfSummary" class="w-full px-3 py-2 mb-3" maxlength="200" />
+          <label class="block text-sm font-medium mb-1" for="cfBody">Texto</label>
+          <textarea id="cfBody" rows="6" class="w-full px-3 py-2 mb-4"></textarea>
+          <div class="flex justify-end gap-3"><button id="cfCancel" class="btn btn-secondary">Cancelar</button><button id="cfSave" class="btn btn-primary">Salvar</button></div></div></div>
+      </div></div>
+    </main>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/admin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - EcoVisão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="icon" type="image/x-icon" href="assets/img/faviconn.svg" />
+  </head>
+
+  <body class="auth-bg">
+    <main class="min-h-screen grid place-items-center p-4">
+      <div class="grid w-full max-w-5xl gap-10 md:grid-cols-2 items-center">
+        <section class="hidden md:block">
+          <a href="./index.html" class="inline-flex items-center gap-2 text-green-700 font-bold text-2xl"><i class="fas fa-leaf"></i> EcoVisão</a>
+          <h1 class="mt-6 text-4xl font-bold text-gray-800 leading-tight">Monitoramento ambiental feito por todos.</h1>
+          <p class="mt-4 text-gray-600">Acompanhe desmatamento, queimadas, mineração e fauna na Serra do Cipó e contribua com registros da sua região.</p>
+          <ul class="mt-8 space-y-4 text-gray-700">
+            <li class="flex items-center gap-3"><span class="w-10 h-10 rounded-lg bg-green-100 text-green-700 flex items-center justify-center"><i class="fas fa-map-location-dot"></i></span> Mapa interativo de ocorrências</li>
+            <li class="flex items-center gap-3"><span class="w-10 h-10 rounded-lg bg-green-100 text-green-700 flex items-center justify-center"><i class="fas fa-bell"></i></span> Alertas de risco compartilhados</li>
+            <li class="flex items-center gap-3"><span class="w-10 h-10 rounded-lg bg-green-100 text-green-700 flex items-center justify-center"><i class="fas fa-comments"></i></span> Fórum e conteúdos educativos</li>
+          </ul>
+        </section>
+
+        <section class="w-full max-w-md mx-auto">
+          <div class="auth-card p-6 sm:p-8">
+            <div class="text-center mb-6">
+              <div class="auth-logo md:hidden"><i class="fas fa-leaf"></i></div>
+              <h2 class="text-2xl font-bold text-gray-800">Entrar</h2>
+              <p class="text-gray-500 text-sm mt-1">Acesse sua conta para continuar.</p>
+            </div>
+
+            <div id="formAlert" class="alert-error hidden mb-4" role="alert" aria-live="polite"></div>
+
+            <form id="loginForm" class="space-y-4" novalidate autocomplete="on">
+              <div>
+                <label for="email" class="block text-sm text-gray-700 mb-1">E-mail</label>
+                <input type="email" id="email" name="email" inputmode="email" autocomplete="username" class="w-full px-3 py-2.5" placeholder="seuemail@exemplo.com" required />
+              </div>
+
+              <div>
+                <label for="password" class="block text-sm text-gray-700 mb-1">Senha</label>
+                <div class="relative">
+                  <input type="password" id="password" name="password" autocomplete="current-password" class="w-full px-3 py-2.5 pr-11" placeholder="••••••••" required minlength="6" />
+                  <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 px-3 text-gray-500 hover:text-gray-700" aria-label="Mostrar ou ocultar senha">
+                    <i class="fa-regular fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <label class="inline-flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                  <input id="remember" name="remember" type="checkbox" class="rounded border-gray-300 text-green-700" /> Lembrar-me
+                </label>
+                <a href="./recover-password.html" class="text-sm text-green-700 hover:underline font-medium">Esqueci minha senha</a>
+              </div>
+
+              <button id="submitBtn" type="submit" class="btn btn-primary w-full py-2.5">Entrar</button>
+            </form>
+
+            <p class="mt-6 text-center text-sm text-gray-600">
+              Não tem conta? <a href="register.html" class="text-green-700 hover:underline font-semibold">Cadastre-se</a>
+            </p>
+          </div>
+          <p class="text-center mt-4 text-sm"><a href="learn.html" class="text-gray-600 hover:text-green-700"><i class="fas fa-book-open"></i> Ver conteúdos educativos sem entrar</a></p>
+        </section>
+      </div>
+    </main>
+
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/login.js"></script>
+    <script>
+      document.getElementById("togglePassword").addEventListener("click", () => {
+        const password = document.getElementById("password");
+        const icon = document.querySelector("#togglePassword i");
+        const isHidden = password.type === "password";
+        password.type = isHidden ? "text" : "password";
+        icon.classList.toggle("fa-eye");
+        icon.classList.toggle("fa-eye-slash");
+      });
+    </script>
+  </body>
+</html>

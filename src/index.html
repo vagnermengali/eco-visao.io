@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoVisão - Monitoramento ambiental da Serra do Cipó</title>
+    <meta name="description" content="Registre, acompanhe e compartilhe ocorrências de desmatamento, queimadas, mineração irregular e fauna na Serra do Cipó." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="icon" type="image/x-icon" href="assets/img/faviconn.svg" />
+    <style>
+      .hero { background: radial-gradient(900px 500px at 85% -10%, rgb(34 197 94 / 0.25), transparent 60%), linear-gradient(160deg, #052e16 0%, #14532d 55%, #166534 100%); }
+      .hero-grid { background-image: linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(to bottom, black, transparent 85%); }
+      .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+      .reveal.in { opacity: 1; transform: none; }
+      details > summary { cursor: pointer; list-style: none; }
+      details > summary::-webkit-details-marker { display: none; }
+      details[open] summary i { transform: rotate(180deg); }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- Navegação -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-green-950/80 backdrop-blur border-b border-white/10" style="background:rgb(5 46 22 / 0.85)">
+      <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3" aria-label="Principal">
+        <a href="#inicio" class="flex items-center gap-2 text-white font-extrabold text-xl"><i class="fas fa-leaf text-green-400"></i> EcoVisão</a>
+        <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-white/80">
+          <li><a href="#sobre" class="hover:text-white">Sobre</a></li>
+          <li><a href="#funcionalidades" class="hover:text-white">Funcionalidades</a></li>
+          <li><a href="#como-funciona" class="hover:text-white">Como funciona</a></li>
+          <li><a href="#conteudos" class="hover:text-white">Conteúdos</a></li>
+          <li><a href="#faq" class="hover:text-white">Dúvidas</a></li>
+        </ul>
+        <div class="hidden md:flex items-center gap-3">
+          <a href="login.html" class="text-white/90 hover:text-white text-sm font-semibold px-3 py-2">Entrar</a>
+          <a href="register.html" class="btn btn-primary">Criar conta</a>
+        </div>
+        <button id="menuBtn" class="md:hidden text-white text-xl" aria-label="Abrir menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+      </nav>
+      <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 space-y-1 text-white/90">
+        <a href="#sobre" class="block py-2">Sobre</a>
+        <a href="#funcionalidades" class="block py-2">Funcionalidades</a>
+        <a href="#como-funciona" class="block py-2">Como funciona</a>
+        <a href="#conteudos" class="block py-2">Conteúdos</a>
+        <a href="#faq" class="block py-2">Dúvidas</a>
+        <div class="flex gap-3 pt-2"><a href="login.html" class="btn btn-secondary flex-1">Entrar</a><a href="register.html" class="btn btn-primary flex-1">Criar conta</a></div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="inicio" class="hero relative text-white overflow-hidden">
+        <div class="hero-grid absolute inset-0" aria-hidden="true"></div>
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-32 pb-20 sm:pt-40 sm:pb-28 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="inline-flex items-center gap-2 text-xs font-semibold bg-white/10 border border-white/20 rounded-full px-3 py-1 mb-6"><i class="fas fa-satellite-dish text-green-300"></i> Serra do Cipó · Minas Gerais</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">Proteger a floresta começa por <span class="text-green-300">ver o que acontece</span>.</h1>
+            <p class="mt-6 text-lg text-white/80 max-w-xl">O EcoVisão reúne em um só lugar o registro de desmatamento, queimadas, mineração irregular e ameaças à fauna, com mapa interativo, alertas e participação de toda a comunidade.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="register.html" class="btn btn-primary text-base px-6 py-3" style="background:#22c55e;color:#052e16">Começar agora <i class="fas fa-arrow-right"></i></a>
+              <a href="learn.html" class="btn text-base px-6 py-3 border-white/30 text-white hover:bg-white/10" style="border-color:rgb(255 255 255 / .35)"><i class="fas fa-book-open"></i> Conteúdos educativos</a>
+            </div>
+            <p class="mt-5 text-sm text-white/60">Gratuito · Sem instalação · Funciona no computador e no celular</p>
+          </div>
+          <!-- Pré-visualização do produto -->
+          <div class="relative" aria-hidden="true">
+            <div class="rounded-2xl bg-white shadow-2xl border border-white/20 overflow-hidden text-gray-800">
+              <div class="flex items-center gap-1.5 px-4 py-2.5 bg-gray-100 border-b"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span><span class="w-2.5 h-2.5 rounded-full bg-green-400"></span><span class="ml-3 text-xs text-gray-500">ecovisao · mapa de ocorrências</span></div>
+              <div class="relative h-64 sm:h-72 bg-gradient-to-br from-green-100 via-emerald-50 to-sky-100">
+                <svg viewBox="0 0 400 260" class="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+                  <path d="M0 190 C70 150 110 210 190 170 S330 120 400 160 L400 260 L0 260Z" fill="#bbf7d0" opacity=".7"/>
+                  <path d="M0 220 C80 190 150 240 230 205 S340 170 400 200 L400 260 L0 260Z" fill="#86efac" opacity=".7"/>
+                  <path d="M20 60 C90 90 140 30 220 70 S330 40 390 80" stroke="#7dd3fc" stroke-width="5" fill="none" opacity=".8"/>
+                </svg>
+                <span class="absolute left-[22%] top-[38%] text-red-500 text-2xl drop-shadow"><i class="fas fa-location-dot"></i></span>
+                <span class="absolute left-[48%] top-[55%] text-green-600 text-2xl drop-shadow"><i class="fas fa-location-dot"></i></span>
+                <span class="absolute left-[70%] top-[30%] text-blue-500 text-2xl drop-shadow"><i class="fas fa-location-dot"></i></span>
+                <span class="absolute left-[60%] top-[68%] text-gray-600 text-2xl drop-shadow"><i class="fas fa-location-dot"></i></span>
+                <div class="absolute left-4 bottom-4 bg-white rounded-xl shadow-lg px-3 py-2 text-xs flex items-center gap-2"><span class="w-7 h-7 rounded-lg bg-red-100 text-red-600 flex items-center justify-center"><i class="fas fa-fire"></i></span><span><b class="block">Foco de incêndio</b><span class="text-gray-500">Canyon Bandeirinhas · hoje</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Números da plataforma (dados reais da API; some se estiver indisponível) -->
+      <section id="numeros" class="hidden bg-green-50 border-b border-green-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div><p class="text-3xl font-extrabold text-green-700" data-stat="alerts">0</p><p class="text-sm text-gray-600">ocorrências registradas</p></div>
+          <div><p class="text-3xl font-extrabold text-green-700" data-stat="users">0</p><p class="text-sm text-gray-600">pessoas na comunidade</p></div>
+          <div><p class="text-3xl font-extrabold text-green-700" data-stat="posts">0</p><p class="text-sm text-gray-600">discussões no fórum</p></div>
+          <div><p class="text-3xl font-extrabold text-green-700" data-stat="contents">0</p><p class="text-sm text-gray-600">conteúdos educativos</p></div>
+        </div>
+      </section>
+
+      <!-- Sobre / problema -->
+      <section id="sobre" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <p class="text-sm font-semibold text-green-700 uppercase tracking-wide">Por que existe</p>
+            <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold">Informação ambiental espalhada não protege ninguém.</h2>
+            <p class="mt-4 text-gray-600">Quem identifica uma queimada ou um desmatamento nem sempre sabe onde registrar, e quem fiscaliza nem sempre recebe a informação a tempo. O EcoVisão centraliza esses registros, com localização exata, data e descrição, e os compartilha com bombeiros, pesquisadores, órgãos públicos, ONGs e moradores.</p>
+            <ul class="mt-6 space-y-3 text-gray-700">
+              <li class="flex gap-3"><i class="fas fa-circle-check text-green-600 mt-1"></i> Registro rápido, direto no mapa</li>
+              <li class="flex gap-3"><i class="fas fa-circle-check text-green-600 mt-1"></i> Informação acessível a especialistas e cidadãos</li>
+              <li class="flex gap-3"><i class="fas fa-circle-check text-green-600 mt-1"></i> Apoio à tomada de decisão e à fiscalização</li>
+            </ul>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4 reveal">
+            <div class="card"><p class="text-4xl font-extrabold text-green-700">5.731 km²</p><p class="mt-2 text-sm text-gray-600">desmatados na Amazônia Legal em 2025, uma queda de 12,07% sobre 2024 (INPE).</p></div>
+            <div class="card"><p class="text-4xl font-extrabold text-green-700">12,7 mi ha</p><p class="mt-2 text-sm text-gray-600">queimados no Brasil em 2025, com destaque para o Cerrado (MapBiomas).</p></div>
+            <div class="card sm:col-span-2 bg-green-50"><p class="text-sm text-gray-700"><i class="fas fa-circle-info text-green-700"></i> O EcoVisão <b>complementa</b> os sistemas oficiais, como PRODES e DETER do INPE, com registros feitos pela comunidade. Ele não substitui a fiscalização.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Funcionalidades -->
+      <section id="funcionalidades" class="bg-gray-50 border-y border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+          <div class="text-center max-w-2xl mx-auto reveal">
+            <p class="text-sm font-semibold text-green-700 uppercase tracking-wide">Funcionalidades</p>
+            <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold">Tudo para acompanhar e agir</h2>
+          </div>
+          <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card card-hover reveal"><span class="w-12 h-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center text-xl"><i class="fas fa-map-location-dot"></i></span><h3 class="mt-4 text-lg font-bold">Mapa interativo</h3><p class="mt-2 text-sm text-gray-600">Veja no mapa onde cada ocorrência foi registrada, filtre por tipo e abra os detalhes de cada ponto.</p></div>
+            <div class="card card-hover reveal"><span class="w-12 h-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center text-xl"><i class="fas fa-bell"></i></span><h3 class="mt-4 text-lg font-bold">Alertas ambientais</h3><p class="mt-2 text-sm text-gray-600">Registre desmatamento, queimadas, mineração e problemas com a fauna, informando local, data e descrição.</p></div>
+            <div class="card card-hover reveal"><span class="w-12 h-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center text-xl"><i class="fas fa-chart-line"></i></span><h3 class="mt-4 text-lg font-bold">Dados e indicadores</h3><p class="mt-2 text-sm text-gray-600">Acompanhe totais, áreas monitoradas e a atividade dos últimos 7 dias, sempre atualizados.</p></div>
+            <div class="card card-hover reveal"><span class="w-12 h-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center text-xl"><i class="fas fa-file-lines"></i></span><h3 class="mt-4 text-lg font-bold">Relatório mensal</h3><p class="mt-2 text-sm text-gray-600">Gere o resumo do mês por tipo de ocorrência e imprima ou salve em PDF.</p></div>
+            <div class="card card-hover reveal"><span class="w-12 h-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center text-xl"><i class="fas fa-comments"></i></span><h3 class="mt-4 text-lg font-bold">Fórum da comunidade</h3><p class="mt-2 text-sm text-gray-600">Converse com outros usuários, compartilhe observações e comente as discussões.</p></div>
+            <div class="card card-hover reveal"><span class="w-12 h-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center text-xl"><i class="fas fa-book-open"></i></span><h3 class="mt-4 text-lg font-bold">Conteúdos educativos</h3><p class="mt-2 text-sm text-gray-600">Artigos abertos a todos sobre desmatamento, queimadas, fauna e como denunciar.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Como funciona -->
+      <section id="como-funciona" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <p class="text-sm font-semibold text-green-700 uppercase tracking-wide">Como funciona</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold">Em três passos</h2>
+        </div>
+        <ol class="mt-12 grid md:grid-cols-3 gap-8">
+          <li class="reveal text-center"><span class="mx-auto w-14 h-14 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center">1</span><h3 class="mt-4 text-lg font-bold">Crie sua conta</h3><p class="mt-2 text-sm text-gray-600">Cadastro rápido com e-mail e senha. Os conteúdos educativos ficam abertos mesmo sem conta.</p></li>
+          <li class="reveal text-center"><span class="mx-auto w-14 h-14 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center">2</span><h3 class="mt-4 text-lg font-bold">Registre uma ocorrência</h3><p class="mt-2 text-sm text-gray-600">Escolha o tipo, descreva o que viu e marque o local exato no mapa.</p></li>
+          <li class="reveal text-center"><span class="mx-auto w-14 h-14 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center">3</span><h3 class="mt-4 text-lg font-bold">Acompanhe e compartilhe</h3><p class="mt-2 text-sm text-gray-600">Veja o painel, discuta no fórum e gere o relatório do mês para quem precisa agir.</p></li>
+        </ol>
+      </section>
+
+      <!-- Para quem -->
+      <section class="bg-green-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-center">Feito para quem protege e para quem vive na região</h2>
+          <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <div class="rounded-xl bg-white/5 border border-white/10 p-6"><i class="fas fa-fire-extinguisher text-2xl text-green-300"></i><h3 class="mt-3 font-bold">Bombeiros</h3><p class="mt-1 text-sm text-white/70">Localizam focos e priorizam o atendimento.</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-6"><i class="fas fa-flask text-2xl text-green-300"></i><h3 class="mt-3 font-bold">Pesquisadores</h3><p class="mt-1 text-sm text-white/70">Consultam dados georreferenciados da região.</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-6"><i class="fas fa-landmark text-2xl text-green-300"></i><h3 class="mt-3 font-bold">Órgãos públicos e ONGs</h3><p class="mt-1 text-sm text-white/70">Apoiam a fiscalização e as ações de preservação.</p></div>
+            <div class="rounded-xl bg-white/5 border border-white/10 p-6"><i class="fas fa-people-group text-2xl text-green-300"></i><h3 class="mt-3 font-bold">Moradores</h3><p class="mt-1 text-sm text-white/70">Registram o que veem e participam da proteção.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conteúdos (carrega da API; fallback estático) -->
+      <section id="conteudos" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+        <div class="flex flex-wrap items-end justify-between gap-4 reveal">
+          <div>
+            <p class="text-sm font-semibold text-green-700 uppercase tracking-wide">Aprenda</p>
+            <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold">Conteúdos educativos</h2>
+          </div>
+          <a href="learn.html" class="text-green-700 font-semibold hover:underline">Ver todos <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div id="contentCards" class="mt-8 grid md:grid-cols-3 gap-6">
+          <a href="learn.html" class="card card-hover block"><span class="badge badge-desmatamento">Desmatamento</span><h3 class="mt-3 font-bold text-lg">O que é desmatamento?</h3><p class="mt-2 text-sm text-gray-600">Entenda como a remoção da cobertura vegetal afeta o clima, o solo e a biodiversidade.</p></a>
+          <a href="learn.html" class="card card-hover block"><span class="badge badge-queimadas">Queimadas</span><h3 class="mt-3 font-bold text-lg">Queimadas: prevenção e o que fazer</h3><p class="mt-2 text-sm text-gray-600">Boas práticas para evitar incêndios florestais e como agir ao avistar um foco.</p></a>
+          <a href="learn.html" class="card card-hover block"><span class="badge badge-fauna">Fauna</span><h3 class="mt-3 font-bold text-lg">Serra do Cipó e sua biodiversidade</h3><p class="mt-2 text-sm text-gray-600">Conheça a riqueza de fauna e flora da região monitorada pelo EcoVisão.</p></a>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="bg-gray-50 border-y border-gray-100">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-20">
+          <h2 class="text-3xl font-extrabold text-center">Dúvidas frequentes</h2>
+          <div class="mt-10 space-y-3">
+            <details class="card !p-0 group"><summary class="flex items-center justify-between gap-4 p-5 font-semibold">O EcoVisão substitui a denúncia oficial?<i class="fas fa-chevron-down text-gray-400 transition-transform"></i></summary><p class="px-5 pb-5 -mt-1 text-sm text-gray-600">Não. Ele ajuda a registrar e compartilhar ocorrências, mas a fiscalização e a aplicação de sanções cabem aos órgãos competentes, como IBAMA e a Polícia Militar de Meio Ambiente.</p></details>
+            <details class="card !p-0 group"><summary class="flex items-center justify-between gap-4 p-5 font-semibold">Preciso de conta para usar?<i class="fas fa-chevron-down text-gray-400 transition-transform"></i></summary><p class="px-5 pb-5 -mt-1 text-sm text-gray-600">Os conteúdos educativos são abertos. Para registrar alertas, usar o mapa, o fórum e gerar relatórios é preciso criar uma conta gratuita.</p></details>
+            <details class="card !p-0 group"><summary class="flex items-center justify-between gap-4 p-5 font-semibold">Quem pode editar ou excluir meus registros?<i class="fas fa-chevron-down text-gray-400 transition-transform"></i></summary><p class="px-5 pb-5 -mt-1 text-sm text-gray-600">Apenas você e os administradores. Moderadores podem remover conteúdos inadequados para manter a comunidade segura.</p></details>
+            <details class="card !p-0 group"><summary class="flex items-center justify-between gap-4 p-5 font-semibold">Quais tipos de ocorrência posso registrar?<i class="fas fa-chevron-down text-gray-400 transition-transform"></i></summary><p class="px-5 pb-5 -mt-1 text-sm text-gray-600">Desmatamento, queimadas, mineração irregular e problemas com a fauna, sempre com local, data e descrição.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA final -->
+      <section class="hero text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center">
+          <h2 class="text-3xl sm:text-4xl font-extrabold">Cada registro ajuda a proteger a Serra do Cipó.</h2>
+          <p class="mt-4 text-white/80">Crie sua conta gratuita e faça parte do monitoramento.</p>
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="register.html" class="btn text-base px-6 py-3" style="background:#22c55e;color:#052e16">Criar conta grátis</a>
+            <a href="login.html" class="btn text-base px-6 py-3 text-white" style="border-color:rgb(255 255 255 / .35)">Já tenho conta</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400" style="background:#0b1210">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <p class="flex items-center gap-2 text-white font-extrabold text-lg"><i class="fas fa-leaf text-green-400"></i> EcoVisão</p>
+          <p class="mt-3">Sistema de monitoramento ambiental da Serra do Cipó. Projeto acadêmico do curso de Sistemas de Informação, PUC Minas (EAD).</p>
+        </div>
+        <div>
+          <p class="text-white font-semibold mb-3">Navegação</p>
+          <ul class="space-y-2">
+            <li><a class="hover:text-white" href="#funcionalidades">Funcionalidades</a></li>
+            <li><a class="hover:text-white" href="learn.html">Conteúdos educativos</a></li>
+            <li><a class="hover:text-white" href="login.html">Entrar</a></li>
+            <li><a class="hover:text-white" href="register.html">Criar conta</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-white font-semibold mb-3">Equipe</p>
+          <p>Alvaro Vinicius Paschoal Sarmento, Geovanni da Costa Xavier, Janderson Rodrigues dos Santos, Luana Cristina Eleuterio, Marco Antônio dos Santos Alves e Vagner Henrique Mengali Correa.</p>
+          <p class="mt-2">Orientador: Luiz Alberto Ferreira Gomes</p>
+        </div>
+      </div>
+      <div class="border-t border-white/10 py-5 text-center text-xs">© 2026 EcoVisão · Tecnologia para um futuro sustentável</div>
+    </footer>
+
+    <script>
+      // Menu mobile
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn.addEventListener("click", () => {
+        const open = mobileMenu.classList.toggle("hidden") === false;
+        menuBtn.setAttribute("aria-expanded", String(open));
+      });
+      mobileMenu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => mobileMenu.classList.add("hidden")));
+
+      // Animação de entrada ao rolar
+      const io = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting && (e.target.classList.add("in"), io.unobserve(e.target))), { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // Dados reais da plataforma (opcional: se a API estiver fora, a seção simplesmente não aparece)
+      const API = "http://localhost:3000";
+      const CAT = { desmatamento: "Desmatamento", queimadas: "Queimadas", mineracao: "Mineração", fauna: "Fauna", legislacao: "Legislação", monitoramento: "Monitoramento" };
+      const esc = (t) => Object.assign(document.createElement("div"), { textContent: t ?? "" }).innerHTML;
+      (async () => {
+        try {
+          const [alerts, users, posts, contents] = await Promise.all(["alerts", "users", "posts", "contents"].map((c) => fetch(API + "/" + c).then((r) => (r.ok ? r.json() : Promise.reject()))));
+          const totals = { alerts: alerts.length, users: users.length, posts: posts.length, contents: contents.length };
+          document.querySelectorAll("[data-stat]").forEach((el) => (el.textContent = totals[el.dataset.stat]));
+          document.getElementById("numeros").classList.remove("hidden");
+          if (contents.length) {
+            document.getElementById("contentCards").innerHTML = contents
+              .slice(0, 3)
+              .map((c) => '<a href="learn.html" class="card card-hover block"><span class="badge badge-' + esc(c.category) + '">' + esc(CAT[c.category] || c.category) + '</span><h3 class="mt-3 font-bold text-lg">' + esc(c.title) + '</h3><p class="mt-2 text-sm text-gray-600">' + esc(c.summary) + "</p></a>")
+              .join("");
+          }
+        } catch (_) {}
+      })();
+    </script>
+  </body>
+</html>

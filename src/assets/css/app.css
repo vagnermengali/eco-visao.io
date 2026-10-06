@@ -1,0 +1,157 @@
+/* EcoVisão — design system (tokens + componentes). Usado junto do Tailwind CDN. */
+:root {
+  --brand-50: #f0fdf4;
+  --brand-100: #dcfce7;
+  --brand-500: #22c55e;
+  --brand-600: #16a34a;
+  --brand-700: #15803d;
+  --brand-900: #14532d;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --surface: #ffffff;
+  --bg: #f6f8f7;
+  --danger: #dc2626;
+  --radius: 0.75rem;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05), 0 1px 3px rgb(0 0 0 / 0.06);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.08);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+body.bg-gray-50, body.bg-gray-100 { background-color: var(--bg); }
+
+/* Acessibilidade: foco visível e movimento reduzido */
+:focus-visible { outline: 2px solid var(--brand-600); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Campos de formulário (valem para todas as páginas) */
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]),
+select,
+textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 0.625rem;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--brand-600);
+  box-shadow: 0 0 0 3px rgb(22 163 74 / 0.2);
+}
+input::placeholder, textarea::placeholder { color: #9ca3af; }
+label { font-weight: 500; }
+
+/* Botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.55rem 1rem; border-radius: 0.625rem; font-weight: 600; font-size: 0.9rem;
+  border: 1px solid transparent; cursor: pointer; line-height: 1.25;
+  transition: background-color 0.15s, box-shadow 0.15s, transform 0.05s;
+}
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-primary { background: var(--brand-600); color: #fff; }
+.btn-primary:hover { background: var(--brand-700); }
+.btn-secondary { background: #fff; color: var(--ink); border-color: #d1d5db; }
+.btn-secondary:hover { background: #f3f4f6; }
+.btn-danger { background: #fef2f2; color: var(--danger); border-color: #fecaca; }
+.btn-danger:hover { background: #fee2e2; }
+.btn-solid-danger { background: var(--danger); color: #fff; }
+.btn-solid-danger:hover { background: #b91c1c; }
+.btn-info { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.btn-info:hover { background: #dbeafe; }
+.btn-sm { padding: 0.3rem 0.65rem; font-size: 0.8rem; }
+
+/* Cards */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1.5rem; }
+.card-hover { transition: box-shadow 0.15s, transform 0.15s; }
+.card-hover:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+/* Cabeçalho de página */
+.page-head { margin-bottom: 1.5rem; }
+.page-head h2 { font-size: 1.5rem; font-weight: 700; color: var(--ink); }
+.page-head p { color: var(--muted); margin-top: 0.25rem; }
+
+/* Chips / abas de filtro */
+.chip {
+  padding: 0.4rem 0.9rem; border-radius: 9999px; border: 1px solid #d1d5db;
+  background: #fff; color: #374151; font-size: 0.85rem; font-weight: 500; cursor: pointer;
+  transition: background-color 0.15s;
+}
+.chip:hover { background: #f3f4f6; }
+.chip.active { background: var(--brand-600); border-color: var(--brand-600); color: #fff; }
+
+/* Badges por tipo de ocorrência */
+.badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.15rem 0.6rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 600; }
+.badge-desmatamento { background: #dcfce7; color: #166534; }
+.badge-queimadas { background: #fee2e2; color: #991b1b; }
+.badge-mineracao { background: #e5e7eb; color: #374151; }
+.badge-fauna { background: #dbeafe; color: #1e40af; }
+.badge-role-admin { background: #fef3c7; color: #92400e; }
+.badge-role-moderator { background: #ede9fe; color: #5b21b6; }
+.badge-role-user { background: #f3f4f6; color: #374151; }
+
+/* Sidebar */
+.nav-link {
+  display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 0.625rem;
+  color: rgb(255 255 255 / 0.78); font-weight: 500; font-size: 0.92rem; transition: background-color 0.15s, color 0.15s;
+}
+.nav-link:hover { background: rgb(255 255 255 / 0.12); color: #fff; }
+.nav-link.active { background: rgb(255 255 255 / 0.2); color: #fff; box-shadow: inset 3px 0 0 #fff; }
+.avatar {
+  width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: rgb(255 255 255 / 0.2);
+  color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; overflow: hidden; flex-shrink: 0;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Modais */
+.modal-overlay { position: fixed; inset: 0; background: rgb(17 24 39 / 0.55); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 1rem; backdrop-filter: blur(2px); }
+.modal-overlay.hidden { display: none; }
+.modal-box { background: #fff; border-radius: 1rem; padding: 1.5rem; width: 100%; max-width: 28rem; max-height: 90vh; overflow: auto; box-shadow: 0 20px 40px rgb(0 0 0 / 0.2); animation: pop 0.18s ease-out both; }
+@keyframes pop { from { opacity: 0; transform: scale(0.97) translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* Estados: vazio, carregando, erro */
+.empty-state { text-align: center; padding: 2.5rem 1rem; color: var(--muted); }
+.empty-state i { font-size: 2rem; color: #9ca3af; margin-bottom: 0.75rem; display: block; }
+.skeleton { background: linear-gradient(90deg, #eef0f2 25%, #f7f8f9 37%, #eef0f2 63%); background-size: 400% 100%; animation: shimmer 1.3s infinite; border-radius: 0.5rem; }
+@keyframes shimmer { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
+.alert-error { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; border-radius: 0.625rem; padding: 0.6rem 0.9rem; font-size: 0.875rem; }
+.alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; border-radius: 0.625rem; padding: 0.6rem 0.9rem; font-size: 0.875rem; }
+
+/* Toast */
+.toast { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 10000; display: flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1rem; border-radius: 0.75rem; color: #fff; box-shadow: var(--shadow-md); animation: pop 0.2s ease-out both; max-width: calc(100vw - 3rem); }
+.toast-success { background: var(--brand-700); }
+.toast-error { background: var(--danger); }
+
+/* Telas de autenticação (login, cadastro, recuperação) */
+.auth-bg {
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 10% -10%, var(--brand-100), transparent 60%),
+    linear-gradient(135deg, var(--brand-50), #ecfeff);
+}
+.auth-card { background: #fff; border: 1px solid var(--line); border-radius: 1rem; box-shadow: var(--shadow-md); }
+.auth-logo { width: 4rem; height: 4rem; border-radius: 9999px; background: var(--brand-100); color: var(--brand-600); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1rem; }
+
+/* Leaflet */
+.leaflet-container { font-family: inherit; }
+
+@media print {
+  body { background: #fff; }
+  .card { box-shadow: none; border-color: #ccc; }
+}
+
+.card-sm { padding: 1rem; }
+.card-flush { padding: 0; }
+
+.avatar img + .avatar-initial { display: none; }
+.avatar { position: relative; }
+.avatar img { position: absolute; inset: 0; }

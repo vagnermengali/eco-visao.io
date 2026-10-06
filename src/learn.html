@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conteúdos Educativos - EcoVisão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <style>@media print { #sidebar, #topbar, .no-print { display: none !important; } }</style>
+    <link rel="icon" type="image/x-icon" href="assets/img/faviconn.svg" />
+  </head>
+  <body class="min-h-screen bg-gray-50 flex">
+    <div id="sidebarBackdrop" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+    <aside id="sidebar"></aside>
+    <main class="flex-1 flex flex-col min-w-0">
+      <header id="topbar" class="bg-white px-4 sm:px-6 py-3.5 border-b border-gray-200 flex items-center justify-between gap-4 sticky top-0 z-30">
+        <button id="openSidebar" class="lg:hidden" aria-label="Abrir menu"><i class="fas fa-bars w-6 h-6"></i></button>
+        <h1 class="text-lg sm:text-xl font-bold text-gray-800">Conteúdos Educativos</h1>
+        <span id="userEmail" class="text-sm text-gray-500 hidden sm:block"></span>
+        <span id="visitorLinks" class="hidden text-sm"><a class="text-green-700 font-medium" href="login.html">Entrar</a> · <a class="text-green-700 font-medium" href="register.html">Cadastrar</a> · <a class="text-gray-600" href="index.html">Início</a></span>
+      </header>
+      <div id="content" class="flex-1 p-4 sm:p-6 overflow-auto"><div class="max-w-6xl mx-auto">
+        <div class="page-head"><p>Materiais para entender e ajudar a proteger o meio ambiente.</p></div>
+        <div id="catTabs" class="flex flex-wrap gap-2 mb-6"></div>
+        <p id="learnMsg" class="hidden text-gray-500"></p>
+        <div id="contentList" class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="skeleton h-40"></div><div class="skeleton h-40"></div></div>
+        <div id="contentModal" class="modal-overlay hidden" role="dialog" aria-modal="true"><div class="modal-box"><h3 id="cmTitle" class="font-semibold text-xl mb-1"></h3><p id="cmMeta" class="text-xs text-gray-400 mb-4"></p><p id="cmBody" class="text-gray-700 mb-6 whitespace-pre-line"></p><div class="text-right"><button id="cmClose" class="btn btn-secondary">Fechar</button></div></div></div>
+      </div></div>
+    </main>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/learn.js"></script>
+  </body>
+</html>

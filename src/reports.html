@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatório Mensal - EcoVisão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <style>@media print { #sidebar, #topbar, .no-print { display: none !important; } }</style>
+    <link rel="icon" type="image/x-icon" href="assets/img/faviconn.svg" />
+  </head>
+  <body class="min-h-screen bg-gray-50 flex">
+    <div id="sidebarBackdrop" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+    <aside id="sidebar"></aside>
+    <main class="flex-1 flex flex-col min-w-0">
+      <header id="topbar" class="bg-white px-4 sm:px-6 py-3.5 border-b border-gray-200 flex items-center justify-between gap-4 sticky top-0 z-30">
+        <button id="openSidebar" class="lg:hidden" aria-label="Abrir menu"><i class="fas fa-bars w-6 h-6"></i></button>
+        <h1 class="text-lg sm:text-xl font-bold text-gray-800">Relatório Mensal</h1>
+        <span id="userEmail" class="text-sm text-gray-500 hidden sm:block"></span>
+      </header>
+      <div id="content" class="flex-1 p-4 sm:p-6 overflow-auto"><div class="max-w-6xl mx-auto">
+        <div class="page-head"><p>Resumo das ocorrências do mês, pronto para imprimir ou salvar em PDF.</p></div>
+        <div class="flex flex-wrap items-end gap-4 mb-6 no-print">
+          <div><label for="month" class="block text-sm font-medium text-gray-700 mb-1">Mês de referência</label>
+            <input id="month" type="month" class="border border-gray-300 rounded-lg px-3 py-2" /></div>
+          <button id="printBtn" class="btn btn-primary"><i class="fas fa-print"></i> Imprimir / salvar PDF</button>
+        </div>
+        <div id="report" class="card"></div>
+      </div></div>
+    </main>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/reports.js"></script>
+  </body>
+</html>
