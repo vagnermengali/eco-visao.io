@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:3000";
+// Em produção (GitHub Pages) troque PRODUCTION_API pela URL do Render.
+const PRODUCTION_API = "https://eco-visao-api.onrender.com";
+const API_URL = ["localhost", "127.0.0.1"].includes(location.hostname) ? "http://localhost:3000" : PRODUCTION_API;
 
 const ROLE_LABEL = { user: "Usuário", moderator: "Moderador", admin: "Administrador" };
 
