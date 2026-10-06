@@ -155,3 +155,7 @@ label { font-weight: 500; }
 .avatar img + .avatar-initial { display: none; }
 .avatar { position: relative; }
 .avatar img { position: absolute; inset: 0; }
+
+/* Escolha de local no mapa: marcadores não interceptam o clique */
+.map-picking .leaflet-marker-icon, .map-picking .leaflet-marker-shadow, .map-picking .leaflet-interactive { pointer-events: none !important; }
+.map-picking { cursor: crosshair; }

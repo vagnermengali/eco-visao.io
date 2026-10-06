@@ -29,6 +29,7 @@ function initMap() {
   map.on("click", (e) => {
     if (!picking) return;
     picking = false;
+    document.getElementById("map").classList.remove("map-picking");
     pickedLatLng = e.latlng;
     el("entradaLocal").textContent = `${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`;
     document.getElementById("map").style.cursor = "";
@@ -153,6 +154,7 @@ if (requireAuth()) {
   el("confirmarModal").addEventListener("click", saveAlert);
   el("escolherLocal").addEventListener("click", () => {
     picking = true;
+    document.getElementById("map").classList.add("map-picking");
     modal.classList.add("hidden");
     document.getElementById("map").style.cursor = "crosshair";
     document.getElementById("map").scrollIntoView({ behavior: "smooth" });
